@@ -1,5 +1,5 @@
 require 'securerandom'
-require './nameable'
+require './interfaces/nameable'
 
 class Person < Nameable
   attr_accessor :name, :age
