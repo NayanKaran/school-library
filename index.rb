@@ -1,7 +1,7 @@
 require './teacher'
 require './student'
-require './capitalize_decorator'
-require './trimmer_decorator'
+require './decorators/nameable/capitalize_decorator'
+require './decorators/nameable/trimmer_decorator'
 
 Student.new(18, '1A', parent_permission: true, name: 'John')
 Teacher.new(30, 'Math', parent_permission: true, name: 'Jane')
