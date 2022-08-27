@@ -49,7 +49,7 @@ class App
     name = gets.chomp.strip.capitalize
     print 'Specialization: '
     specialization = gets.chomp.strip
-    @people << Teacher.new(age, specialization, name:name)
+    @people << Teacher.new(age, specialization, name: name)
     puts 'Teacher created successfully'
   end
 
@@ -71,7 +71,7 @@ class App
     when 'N'
       permission = false
     end
-    @people << Student.new(age, nil, parent_permission: permission, name:name)
+    @people << Student.new(age, nil, parent_permission: permission, name: name)
     puts 'Student created successfully'
   end
 
