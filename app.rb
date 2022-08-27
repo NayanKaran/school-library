@@ -75,7 +75,11 @@ class App
     puts 'Student created successfully'
   end
 
-  def create_rental
+  def create_rental # rubocop:disable Metrics/MethodLength
+    unless @people.length.positive? && @books.length.positive?
+      return puts 'There should be atleast one book and one person. Kindly add atleast one book and one person.'
+    end
+
     puts
     puts 'Select a book from the following list by number'
     list_books
