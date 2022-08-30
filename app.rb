@@ -3,6 +3,11 @@ require './student'
 require './teacher'
 require './rental'
 
+def get_input(question)
+  print question
+  gets.chomp
+end
+
 class App
   def initialize
     @books = []
@@ -11,10 +16,8 @@ class App
 
   def add_book
     puts
-    print 'Title: '
-    title = gets.chomp.strip.capitalize
-    print 'Author: '
-    author = gets.chomp.strip.capitalize
+    title = get_input('Title: ').strip.capitalize
+    author = get_input('Author: ').strip.capitalize
     @books << Book.new(title, author)
   end
 
@@ -27,8 +30,7 @@ class App
 
   def create_person
     puts
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    choice = gets.chomp.strip.to_i
+    choice = get_input('Do you want to create a student (1) or a teacher (2)? [Input the number]: ').strip.to_i
     case choice
     when 1
       create_student
@@ -39,32 +41,20 @@ class App
 
   def create_teacher
     puts
-    print 'Age: '
-    age = gets.chomp.strip.to_i
-    while age <= 0 || age >= 100
-      print 'Please input a valid age (1 - 100): '
-      age = gets.chomp.strip.to_i
-    end
-    print 'Name: '
-    name = gets.chomp.strip.capitalize
-    print 'Specialization: '
-    specialization = gets.chomp.strip
+    age = get_input('Age: ').strip.to_i
+    age = get_input('Please input a valid age (1 - 100): ').strip.to_i while age <= 0 || age >= 100
+    name = get_input('Name: ').strip.capitalize
+    specialization = get_input('Specialization: ').strip
     @people << Teacher.new(age, specialization, name: name)
     puts 'Teacher created successfully'
   end
 
   def create_student
     puts
-    print 'Age: '
-    age = gets.chomp.strip.to_i
-    while age <= 0 || age >= 100
-      print 'Please input a valid age: (1 - 100): '
-      age = gets.chomp.strip.to_i
-    end
-    print 'Name: '
-    name = gets.chomp.strip.capitalize
-    print 'Has parent permission? [Y/N]: '
-    permission = gets.chomp.strip.upcase
+    age = get_input('Age: ').strip.to_i
+    age = get_input('Please input a valid age: (1 - 100): ').strip.to_i while age <= 0 || age >= 100
+    name = get_input('Name: ').strip.capitalize
+    permission = get_input('Has parent permission? [Y/N]: ').strip.upcase
     case permission
     when 'Y'
       permission = true
@@ -75,30 +65,27 @@ class App
     puts 'Student created successfully'
   end
 
-  def create_rental # rubocop:disable Metrics/MethodLength
+  def create_rental
     unless @people.length.positive? && @books.length.positive?
-      return puts 'There should be atleast one book and one person. Kindly add atleast one book and one person.'
+      return puts 'There should be at least one book and one person. Kindly add at least one book and one person.'
     end
 
     puts
     puts 'Select a book from the following list by number'
     list_books
-    book_choice = gets.chomp.to_i
+    book_choice = get_input('').to_i
     while book_choice.negative? || book_choice >= @books.length
-      print "Please enter a number within 0 - #{@books.length - 1} range: "
-      book_choice = gets.chomp.to_i
+      book_choice = get_input("Please enter a number within 0 - #{@books.length - 1} range: ").to_i
     end
     book = @books[book_choice]
     puts 'Select a person from the following list by number (not id)'
     list_people
-    person_choice = gets.chomp.to_i
+    person_choice = get_input('').chomp.to_i
     while person_choice.negative? || person_choice >= @people.length
-      print "Please enter a number within 0 - #{@people.length - 1} range: "
-      person_choice = gets.chomp.to_i
+      person_choice = get_input("Please enter a number within 0 - #{@people.length - 1} range: ").to_i
     end
     person = @people[person_choice]
-    print 'Enter date of booking: (yyyy/mm/dd) : '
-    date = gets.chomp.strip
+    date = get_input('Enter date of booking: (yyyy/mm/dd) : ').strip
     person.add_rental(date, book)
   end
 
@@ -111,8 +98,7 @@ class App
 
   def list_rentals
     puts
-    print 'ID of person: '
-    person_id = gets.chomp
+    person_id = get_input('ID of person: ')
     person = get_person(person_id)
     puts 'Rentals:'
     person.rentals.each do |rental|
