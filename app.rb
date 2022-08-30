@@ -42,9 +42,7 @@ class App
   def create_teacher
     puts
     age = get_input('Age: ').strip.to_i
-    while age <= 0 || age >= 100
-      age = get_input('Please input a valid age (1 - 100): ').strip.to_i
-    end
+    age = get_input('Please input a valid age (1 - 100): ').strip.to_i while age <= 0 || age >= 100
     name = get_input('Name: ').strip.capitalize
     specialization = get_input('Specialization: ').strip
     @people << Teacher.new(age, specialization, name: name)
@@ -54,9 +52,7 @@ class App
   def create_student
     puts
     age = get_input('Age: ').strip.to_i
-    while age <= 0 || age >= 100
-      age = get_input('Please input a valid age: (1 - 100): ').strip.to_i
-    end
+    age = get_input('Please input a valid age: (1 - 100): ').strip.to_i while age <= 0 || age >= 100
     name = get_input('Name: ').strip.capitalize
     permission = get_input('Has parent permission? [Y/N]: ').strip.upcase
     case permission
@@ -69,7 +65,7 @@ class App
     puts 'Student created successfully'
   end
 
-  def create_rental # rubocop:disable Metrics/MethodLength
+  def create_rental
     unless @people.length.positive? && @books.length.positive?
       return puts 'There should be at least one book and one person. Kindly add at least one book and one person.'
     end
