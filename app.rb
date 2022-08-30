@@ -71,7 +71,7 @@ class App
 
   def create_rental # rubocop:disable Metrics/MethodLength
     unless @people.length.positive? && @books.length.positive?
-      return puts 'There should be atleast one book and one person. Kindly add atleast one book and one person.'
+      return puts 'There should be at least one book and one person. Kindly add at least one book and one person.'
     end
 
     puts
