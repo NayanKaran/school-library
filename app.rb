@@ -9,9 +9,12 @@ def get_input(question)
 end
 
 class App
+  attr_accessor :books, :people, :rentals
+
   def initialize
     @books = []
     @people = []
+    @rentals = []
   end
 
   def add_book
@@ -86,13 +89,17 @@ class App
     end
     person = @people[person_choice]
     date = get_input('Enter date of booking: (yyyy/mm/dd) : ').strip
-    person.add_rental(date, book)
+    @rentals << person.add_rental(date, book)
   end
 
   def list_people
     puts
     @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}"
+      if person.class == Student
+        puts "#{index}) [Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}, Parent Permission: #{person.parent_permission}"
+      else
+        puts "#{index}) [Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}, Specialization: #{person.specialization}"
+      end
     end
   end
 
