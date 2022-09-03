@@ -17,15 +17,14 @@ class Student < Person
     "¯\(ツ)/¯"
   end
 
-  def to_json(*args)
+  def to_json(*_args)
     {
-      "class": self.class,
-      "id": id,
-      "age": age,
-      "name": name,
-      "parent_permission": parent_permission,
-      "classroom": classroom
+      class: self.class,
+      id: id,
+      age: age,
+      name: name,
+      parent_permission: parent_permission,
+      classroom: classroom
     }.to_json
   end
-
 end
