@@ -2,12 +2,12 @@ require 'securerandom'
 require './interfaces/nameable'
 
 class Person < Nameable
-  attr_accessor :name, :age, :rentals
+  attr_accessor :name, :age, :rentals, :parent_permission
   attr_reader :id
 
-  def initialize(age, parent_permission: true, name: 'Unknown')
+  def initialize(age, parent_permission: true, name: 'Unknown', id: SecureRandom.hex(5))
     super()
-    @id = SecureRandom.hex(5)
+    @id = id
     @name = name
     @age = age
     @parent_permission = parent_permission
