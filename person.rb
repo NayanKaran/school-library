@@ -1,5 +1,6 @@
 require 'securerandom'
 require './interfaces/nameable'
+require './rental'
 
 class Person < Nameable
   attr_accessor :name, :age, :rentals, :parent_permission
