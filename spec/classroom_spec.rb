@@ -12,12 +12,11 @@ describe Classroom do
 
   describe '#add_student' do
     before(:all) do
-      @student = Student.new(12, nil, parent_permission: true, name: "Ram")
+      @student = Student.new(12, nil, parent_permission: true, name: 'Ram')
     end
     it 'should add a student to @students' do
       @classroom.add_student(@student)
       expect(@classroom.students.count).to eq 1
     end
   end
-
 end

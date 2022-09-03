@@ -7,16 +7,16 @@ describe Book do
   end
 
   it 'should return the correct title' do
-    expect(@book.title).to eq "The Hobbit"
+    expect(@book.title).to eq 'The Hobbit'
   end
-  
+
   it 'should return the correct author' do
-    expect(@book.title).to eq "The Hobbit"
+    expect(@book.title).to eq 'The Hobbit'
   end
 
   describe '#add_rental' do
     before(:all) do
-        @person = Person.new(18, name: 'John', parent_permission: true)
+      @person = Person.new(18, name: 'John', parent_permission: true)
     end
     it 'should add a rental to @rentals' do
       @book.add_rental('2020-01-01', @person)
