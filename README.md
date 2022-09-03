@@ -31,6 +31,11 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@bapidebabrata](https://twitter.com/bapidebabrata)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/debabrata-mandal-83461696/)
 
+👤 Kell Mcwatt (K42)
+
+- GitHub: [@githubhandle](https://github.com/CrystallineButterfly)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kell_mcwatt/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
