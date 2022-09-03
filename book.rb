@@ -7,10 +7,10 @@ class Book
     @rentals = []
   end
 
-  def to_json(*args)
+  def to_json(*_args)
     {
-      "title": title,
-      "author": author
+      title: title,
+      author: author
     }.to_json
   end
 

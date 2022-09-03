@@ -95,10 +95,11 @@ class App
   def list_people
     puts
     @people.each_with_index do |person, index|
-      if person.class == Student
-        puts "#{index}) [Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}, Parent Permission: #{person.parent_permission}"
+      print "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      if person.instance_of?(Student)
+        puts ", Parent Permission: #{person.parent_permission}"
       else
-        puts "#{index}) [Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}, Specialization: #{person.specialization}"
+        puts ", Specialization: #{person.specialization}"
       end
     end
   end
